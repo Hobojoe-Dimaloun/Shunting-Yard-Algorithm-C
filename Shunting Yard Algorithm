@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char input[100], output[100], stack[100];
+    
+    printf("Enter equation\n");
+    fgets(input, sizeof(input),stdin);
+    
+    
+    
+
+    return(0);
+}
