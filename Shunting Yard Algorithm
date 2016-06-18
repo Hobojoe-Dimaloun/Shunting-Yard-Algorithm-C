@@ -92,7 +92,7 @@ int main()
                                         break;
                                      }
                             case '^':stack[stackCounter]=input[inputCounter]; stackCounter++; break;
-                            default : break;
+                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
                         }
                         else{stack[stackCounter]=input[inputCounter]; stackCounter++; break;}
@@ -137,7 +137,7 @@ int main()
                                         stackCounter++;
                                         break;
                                      }
-                            default : break;
+                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
 
                         }
@@ -183,7 +183,7 @@ int main()
                                         stackCounter++;
                                         break;
                                      }
-                            default : break;
+                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
 
                         }
@@ -229,7 +229,7 @@ int main()
                                         stackCounter++;
                                         break;
                                      }
-                            default : break;
+                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
 
                         }
@@ -249,11 +249,11 @@ int main()
         output[outputCounter]=stack[stackCounter];
         outputCounter++;
     }
+    int i;
 
-
-    for(outputCounter=0;outputCounter<inputCounter;outputCounter++)
+    for(i=0;i<outputCounter;i++)
     {
-        printf("%c",output[outputCounter]);
+        printf("%c",output[i]);
     }
     return(0);
 }
