@@ -66,22 +66,22 @@ int main()
                             switch(stack[stackCounter])
                             {
                             case '-':
-                            case '+':
-                            case '^':{
+                            case '+':{
                                         stackCounter++;                                     //Advance Counter to empty cell
                                         stack[stackCounter]=input[inputCounter];            //Input into cell and advance
                                         stackCounter++;
                                         break;
                                      }
                             case '*':
-                            case '/':{                                                      //equal precedence and left associative
+                            case '/':
+                            case '^':{                                                      //equal precedence and left associative
                                         output[outputCounter]=stack[stackCounter];          //Pop '/' to output and advance output counter
                                         outputCounter++;
                                         stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
                                         stackCounter++;
                                         break;
                                      }
-                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
+                            default : ;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
 
                         }
@@ -96,18 +96,13 @@ int main()
                             switch(stack[stackCounter])
                             {
                             case '-':
-                            case '+':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
+                            case '+':
                             case '*':
                             case '/':
                             case '^':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
+                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
+                                        outputCounter++;
+                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
                                         stackCounter++;
                                         break;
                                      }
