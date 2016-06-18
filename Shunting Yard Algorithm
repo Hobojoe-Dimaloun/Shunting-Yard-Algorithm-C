@@ -58,72 +58,22 @@ int main()
 
             case '^':stack[stackCounter]=input[inputCounter]; stackCounter++; break;       //Assign input and move to new empty input
 
-            case '/':{
-                        if(stackCounter>0)                                                  //Prevents stack underflow
-                        {
-                            stackCounter--;                                                 //Return counter to the last input
-                            switch(stack[stackCounter])
-                            {
-                            case '-':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '+':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '*':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
-
-                            case '/':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '/' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '^':stack[stackCounter]=input[inputCounter]; stackCounter++; break;
-                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
-                            }
-                        }
-                        else{stack[stackCounter]=input[inputCounter]; stackCounter++; break;}
-                        break;
-                    }
+            case '/':
             case '*':{
                         if(stackCounter>0)                                                  //Prevents stack underflow
                         {
                             stackCounter--;                                                 //Return counter to the last input
                             switch(stack[stackCounter])
                             {
-                            case '-':{
+                            case '-':
+                            case '+':
+                            case '^':{
                                         stackCounter++;                                     //Advance Counter to empty cell
                                         stack[stackCounter]=input[inputCounter];            //Input into cell and advance
                                         stackCounter++;
                                         break;
                                      }
-                            case '+':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '*':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
-
+                            case '*':
                             case '/':{                                                      //equal precedence and left associative
                                         output[outputCounter]=stack[stackCounter];          //Pop '/' to output and advance output counter
                                         outputCounter++;
@@ -131,12 +81,6 @@ int main()
                                         stackCounter++;
                                         break;
                                      }
-                            case '^':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
                             default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
                             }
 
@@ -144,65 +88,14 @@ int main()
                         else{stack[stackCounter]=input[inputCounter]; stackCounter++; break;}
                         break;
                     }
-            case '+': {
-                        if(stackCounter>0)                                                  //Prevents stack underflow
-                        {
-                            stackCounter--;                                                 //Return counter to the last input
-                            switch(stack[stackCounter])
-                            {
-                            case '-':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '+':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '*':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-
-                            case '/':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-                            case '^':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-                            default : stackCounter++;stack[stackCounter]=input[inputCounter]; stackCounter++; break;
-                            }
-
-                        }
-                        else{stack[stackCounter]=input[inputCounter]; stackCounter++; break;}
-                        break;
-                    }
+            case '+':
             case '-': {
                         if(stackCounter>0)                                                  //Prevents stack underflow
                         {
                             stackCounter--;                                                 //Return counter to the last input
                             switch(stack[stackCounter])
                             {
-                            case '-':{                                                      //equal precedence and left associative
-                                        output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
-                                        outputCounter++;
-                                        stack[stackCounter]=input[inputCounter];            //Push '/' onto stack and advance stack Counter
-                                        stackCounter++;
-                                        break;
-                                     }
+                            case '-':
                             case '+':{                                                      //equal precedence and left associative
                                         output[outputCounter]=stack[stackCounter];          //Pop '*' to output and advance output counter
                                         outputCounter++;
@@ -210,19 +103,8 @@ int main()
                                         stackCounter++;
                                         break;
                                      }
-                            case '*':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
-
-                            case '/':{
-                                        stackCounter++;                                     //Advance Counter to empty cell
-                                        stack[stackCounter]=input[inputCounter];            //Input into cell and advance
-                                        stackCounter++;
-                                        break;
-                                     }
+                            case '*':
+                            case '/':
                             case '^':{
                                         stackCounter++;                                     //Advance Counter to empty cell
                                         stack[stackCounter]=input[inputCounter];            //Input into cell and advance
